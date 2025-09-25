@@ -13,3 +13,20 @@ insert into hope1 values(null,203);
 insert into hope1 values(null,203);
 
 select * from hope1;
+
+Output:
+
++-------+------+------+-----+---------+-------+
+| Field | Type | Null | Key | Default | Extra |
++-------+------+------+-----+---------+-------+
+| a     | int  | YES  | UNI | NULL    |       |
+| b     | int  | YES  |     | NULL    |       |
++-------+------+------+-----+---------+-------+
++------+------+
+| a    | b    |
++------+------+
+|  101 |  201 |
+|  102 |  202 |
+| NULL |  203 |
+| NULL |  203 |
++------+------+

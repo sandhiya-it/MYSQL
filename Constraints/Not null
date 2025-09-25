@@ -1,0 +1,28 @@
+not null constraints
+
+create table hope1(a int NOT NULL,b int);
+desc hope1;
+
+insert into hope1 values(101,201);
+
+insert into hope1 values(102,202);
+
+-- insert into hope1 values(null,203);
+
+
+select * from hope1;
+
+Output:
+
++-------+------+------+-----+---------+-------+
+| Field | Type | Null | Key | Default | Extra |
++-------+------+------+-----+---------+-------+
+| a     | int  | NO   |     | NULL    |       |
+| b     | int  | YES  |     | NULL    |       |
++-------+------+------+-----+---------+-------+
++-----+------+
+| a   | b    |
++-----+------+
+| 101 |  201 |
+| 102 |  202 |
++-----+------+

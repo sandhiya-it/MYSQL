@@ -1,0 +1,26 @@
+primary key
+
+create table hope1(a int primary key,b int);
+desc hope1;
+
+insert into hope1 values(101,201);
+
+-- insert into hope1 values(101,202);
+
+-- insert into hope1 values(null,203);
+
+select * from hope1;
+
+Output:
+
++-------+------+------+-----+---------+-------+
+| Field | Type | Null | Key | Default | Extra |
++-------+------+------+-----+---------+-------+
+| a     | int  | NO   | PRI | NULL    |       |
+| b     | int  | YES  |     | NULL    |       |
++-------+------+------+-----+---------+-------+
++-----+------+
+| a   | b    |
++-----+------+
+| 101 |  201 |
++-----+------+

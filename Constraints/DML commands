@@ -1,0 +1,43 @@
+DML commands 
+  1.Insert  - it is used to insert the values in the table
+  2.Update  -it is used to update the values in the table with where condition
+  3.Delete  -it is used to delete the values with where condition
+
+create table branch(branch_name varchar(20) primary key,branch_city varchar(20),asset int);
+
+
+insert into branch values('Tambaram','Chennai-45',50000);
+insert into branch values('Adayar','Chennai-20',100000);
+insert into branch values('Tnagar','Chennai-17',250000);
+insert into branch values('Saidapet','Chennai-15',150000);
+insert into branch values('Chrompet','Chennai-43',450000);
+insert into branch values('Guindy','Chennai-32',150000);
+
+update branch SET branch_city='Madurai-25' WHERE branch_name='Tambaram';
+select*from branch;
+
+delete from branch where branch_city='Madurai-25';
+select*from branch;
+
+Output:
+
++-------------+-------------+--------+
+| branch_name | branch_city | asset  |
++-------------+-------------+--------+
+| Adayar      | Chennai-20  | 100000 |
+| Chrompet    | Chennai-43  | 450000 |
+| Guindy      | Chennai-32  | 150000 |
+| Saidapet    | Chennai-15  | 150000 |
+| Tambaram    | Madurai-25  |  50000 |
+| Tnagar      | Chennai-17  | 250000 |
++-------------+-------------+--------+
++-------------+-------------+--------+
+| branch_name | branch_city | asset  |
++-------------+-------------+--------+
+| Adayar      | Chennai-20  | 100000 |
+| Chrompet    | Chennai-43  | 450000 |
+| Guindy      | Chennai-32  | 150000 |
+| Saidapet    | Chennai-15  | 150000 |
+| Tnagar      | Chennai-17  | 250000 |
++-------------+-------------+--------+
+

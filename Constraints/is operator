@@ -1,0 +1,14 @@
+is operator is used to comparing the null values 
+
+select loan_no from loan where amount is null;
+
+-- select loan_no from loan where amount=null;   it shows the error 
+
+Output:
+
++---------+
+| loan_no |
++---------+
+| Loan_08 |
+| Loan_09 |
++---------+

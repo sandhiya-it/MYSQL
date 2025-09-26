@@ -1,0 +1,51 @@
+like operator is used to denote the format specificer
+
+select * from customer;
+
+select customer_name from customer where customer_street like'__r%';
+
+select customer_name from customer where customer_street like'ma%';
+
+select customer_name from customer where customer_street like'%s_';
+
+Output:
+
++-------------+-----------------------+-----------------+---------------+
+| customer_id | customer_name         | customer_street | customer_city |
++-------------+-----------------------+-----------------+---------------+
+| Cust_01     | Thanmathi D E         | Main            | Sankarankovil |
+| Cust_02     | Bharkavi D E          | South           | Tirunelveli   |
+| Cust_03     | Thangasamy S          | East            | Madurai       |
+| Cust_04     | Veluchamy             | North           | Thuckalay     |
+| Cust_05     | Esther Venuga D       | Main            | Chennai       |
+| Cust_06     | Lakshmi V             | West            | Tenkasi       |
+| Cust_07     | Javid Ali L           | South           | Coimbatore    |
+| Cust_08     | Dickson Paul Samraj K | North           | Vallioor      |
+| Cust_09     | Surenthran David P    | West            | Palayamkottai |
+| Cust_10     | Suresh K              | East            | Salem         |
+| Cust_11     | Samiayya V            | West            | Chidambaram   |
+| Cust_12     | Sakunthaladevi S      | South           | Erode         |
+| Cust_13     | Muthuramalingam V     | Main            | Tiruppur      |
++-------------+-----------------------+-----------------+---------------+
++-----------------------+
+| customer_name         |
++-----------------------+
+| Veluchamy             |
+| Dickson Paul Samraj K |
++-----------------------+
++-------------------+
+| customer_name     |
++-------------------+
+| Thanmathi D E     |
+| Esther Venuga D   |
+| Muthuramalingam V |
++-------------------+
++--------------------+
+| customer_name      |
++--------------------+
+| Thangasamy S       |
+| Lakshmi V          |
+| Surenthran David P |
+| Suresh K           |
+| Samiayya V         |
++--------------------+

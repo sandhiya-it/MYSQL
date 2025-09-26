@@ -1,0 +1,117 @@
+Selection
+
+select * from customer;
+
+select * from customer where customer_id='Cust_01';
+
+select * from customer where customer_street='Main';
+
+
+
+Output:
+
++-------------+-----------------------+-----------------+---------------+
+| customer_id | customer_name         | customer_street | customer_city |
++-------------+-----------------------+-----------------+---------------+
+| Cust_01     | Thanmathi D E         | Main            | Sankarankovil |
+| Cust_02     | Bharkavi D E          | South           | Tirunelveli   |
+| Cust_03     | Thangasamy S          | East            | Madurai       |
+| Cust_04     | Veluchamy             | North           | Thuckalay     |
+| Cust_05     | Esther Venuga D       | Main            | Chennai       |
+| Cust_06     | Lakshmi V             | West            | Tenkasi       |
+| Cust_07     | Javid Ali L           | South           | Coimbatore    |
+| Cust_08     | Dickson Paul Samraj K | North           | Vallioor      |
+| Cust_09     | Surenthran David P    | West            | Palayamkottai |
+| Cust_10     | Suresh K              | East            | Salem         |
+| Cust_11     | Samiayya V            | West            | Chidambaram   |
+| Cust_12     | Sakunthaladevi S      | South           | Erode         |
+| Cust_13     | Muthuramalingam V     | Main            | Tiruppur      |
++-------------+-----------------------+-----------------+---------------+
+
+Projection
+
+select customer_name from customer;
+
+select customer_id,customer_name from customer;
+
+select * from customer;
+
+
+Output:
+
++-----------------------+
+| customer_name         |
++-----------------------+
+| Thanmathi D E         |
+| Bharkavi D E          |
+| Thangasamy S          |
+| Veluchamy             |
+| Esther Venuga D       |
+| Lakshmi V             |
+| Javid Ali L           |
+| Dickson Paul Samraj K |
+| Surenthran David P    |
+| Suresh K              |
+| Samiayya V            |
+| Sakunthaladevi S      |
+| Muthuramalingam V     |
++-----------------------+
++-------------+-----------------------+
+| customer_id | customer_name         |
++-------------+-----------------------+
+| Cust_01     | Thanmathi D E         |
+| Cust_02     | Bharkavi D E          |
+| Cust_03     | Thangasamy S          |
+| Cust_04     | Veluchamy             |
+| Cust_05     | Esther Venuga D       |
+| Cust_06     | Lakshmi V             |
+| Cust_07     | Javid Ali L           |
+| Cust_08     | Dickson Paul Samraj K |
+| Cust_09     | Surenthran David P    |
+| Cust_10     | Suresh K              |
+| Cust_11     | Samiayya V            |
+| Cust_12     | Sakunthaladevi S      |
+| Cust_13     | Muthuramalingam V     |
++-------------+-----------------------+
++-------------+-----------------------+-----------------+---------------+
+| customer_id | customer_name         | customer_street | customer_city |
++-------------+-----------------------+-----------------+---------------+
+| Cust_01     | Thanmathi D E         | Main            | Sankarankovil |
+| Cust_02     | Bharkavi D E          | South           | Tirunelveli   |
+| Cust_03     | Thangasamy S          | East            | Madurai       |
+| Cust_04     | Veluchamy             | North           | Thuckalay     |
+| Cust_05     | Esther Venuga D       | Main            | Chennai       |
+| Cust_06     | Lakshmi V             | West            | Tenkasi       |
+| Cust_07     | Javid Ali L           | South           | Coimbatore    |
+| Cust_08     | Dickson Paul Samraj K | North           | Vallioor      |
+| Cust_09     | Surenthran David P    | West            | Palayamkottai |
+| Cust_10     | Suresh K              | East            | Salem         |
+| Cust_11     | Samiayya V            | West            | Chidambaram   |
+| Cust_12     | Sakunthaladevi S      | South           | Erode         |
+| Cust_13     | Muthuramalingam V     | Main            | Tiruppur      |
++-------------+-----------------------+-----------------+---------------+
+
+
+Combination of Projection and Selection
+
+select customer_id from customer where customer_city='Palayamkottai';
+
+
+select customer_id,customer_name from customer where customer_street='south';
+
+
+Output:
+
++-------------+
+| customer_id |
++-------------+
+| Cust_09     |
++-------------+
++-------------+------------------+
+| customer_id | customer_name    |
++-------------+------------------+
+| Cust_02     | Bharkavi D E     |
+| Cust_07     | Javid Ali L      |
+| Cust_12     | Sakunthaladevi S |
++-------------+------------------+
+

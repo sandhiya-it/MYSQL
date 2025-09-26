@@ -1,0 +1,30 @@
+cartesian product
+
+  syntax:  select column_mame from table1,table2; 
+
+create table hope1(a int primary key,b int);
+insert into hope1 values(101,201);
+insert into hope1 values (102,202);
+insert into hope1 values (103,203);
+create table hope2(a int,c int,foreign key(a) references hope1(a));
+insert into hope2 values (101,301);
+insert into hope2 values (102,302);
+insert into hope2 values (null,303);
+
+select * from hope1,hope2;
+
+Output:
+
++-----+------+------+------+
+| a   | b    | a    | c    |
++-----+------+------+------+
+| 103 |  203 |  101 |  301 |
+| 102 |  202 |  101 |  301 |
+| 101 |  201 |  101 |  301 |
+| 103 |  203 |  102 |  302 |
+| 102 |  202 |  102 |  302 |
+| 101 |  201 |  102 |  302 |
+| 103 |  203 | NULL |  303 |
+| 102 |  202 | NULL |  303 |
+| 101 |  201 | NULL |  303 |
++-----+------+------+------+

@@ -1,0 +1,99 @@
+Order by is used to display the value in ascending or descending order
+ascending  ----> asc
+descending -----> desc
+
+select * from branch;
+
+select * from branch order by asset asc;
+
+select * from branch order by asset desc;
+
+
+select * from customer;
+
+select * from customer order by customer_name asc;
+select * from customer order by customer_name desc;
+
+Output:
+
++-------------+-------------+--------+
+| branch_name | branch_city | asset  |
++-------------+-------------+--------+
+| Adayar      | Chennai-20  | 100000 |
+| Chrompet    | Chennai-43  | 450000 |
+| Guindy      | Chennai-32  | 150000 |
+| Saidapet    | Chennai-15  | 150000 |
+| Tambaram    | Chennai-45  |  50000 |
+| Tnagar      | Chennai-17  | 250000 |
++-------------+-------------+--------+
++-------------+-------------+--------+
+| branch_name | branch_city | asset  |
++-------------+-------------+--------+
+| Tambaram    | Chennai-45  |  50000 |
+| Adayar      | Chennai-20  | 100000 |
+| Guindy      | Chennai-32  | 150000 |
+| Saidapet    | Chennai-15  | 150000 |
+| Tnagar      | Chennai-17  | 250000 |
+| Chrompet    | Chennai-43  | 450000 |
++-------------+-------------+--------+
++-------------+-------------+--------+
+| branch_name | branch_city | asset  |
++-------------+-------------+--------+
+| Chrompet    | Chennai-43  | 450000 |
+| Tnagar      | Chennai-17  | 250000 |
+| Guindy      | Chennai-32  | 150000 |
+| Saidapet    | Chennai-15  | 150000 |
+| Adayar      | Chennai-20  | 100000 |
+| Tambaram    | Chennai-45  |  50000 |
++-------------+-------------+--------+
++-------------+-----------------------+-----------------+---------------+
+| customer_id | customer_name         | customer_street | customer_city |
++-------------+-----------------------+-----------------+---------------+
+| Cust_01     | Thanmathi D E         | Main            | Sankarankovil |
+| Cust_02     | Bharkavi D E          | South           | Tirunelveli   |
+| Cust_03     | Thangasamy S          | East            | Madurai       |
+| Cust_04     | Veluchamy             | North           | Thuckalay     |
+| Cust_05     | Esther Venuga D       | Main            | Chennai       |
+| Cust_06     | Lakshmi V             | West            | Tenkasi       |
+| Cust_07     | Javid Ali L           | South           | Coimbatore    |
+| Cust_08     | Dickson Paul Samraj K | North           | Vallioor      |
+| Cust_09     | Surenthran David P    | West            | Palayamkottai |
+| Cust_10     | Suresh K              | East            | Salem         |
+| Cust_11     | Samiayya V            | West            | Chidambaram   |
+| Cust_12     | Sakunthaladevi S      | South           | Erode         |
+| Cust_13     | Muthuramalingam V     | Main            | Tiruppur      |
++-------------+-----------------------+-----------------+---------------+
++-------------+-----------------------+-----------------+---------------+
+| customer_id | customer_name         | customer_street | customer_city |
++-------------+-----------------------+-----------------+---------------+
+| Cust_02     | Bharkavi D E          | South           | Tirunelveli   |
+| Cust_08     | Dickson Paul Samraj K | North           | Vallioor      |
+| Cust_05     | Esther Venuga D       | Main            | Chennai       |
+| Cust_07     | Javid Ali L           | South           | Coimbatore    |
+| Cust_06     | Lakshmi V             | West            | Tenkasi       |
+| Cust_13     | Muthuramalingam V     | Main            | Tiruppur      |
+| Cust_12     | Sakunthaladevi S      | South           | Erode         |
+| Cust_11     | Samiayya V            | West            | Chidambaram   |
+| Cust_09     | Surenthran David P    | West            | Palayamkottai |
+| Cust_10     | Suresh K              | East            | Salem         |
+| Cust_03     | Thangasamy S          | East            | Madurai       |
+| Cust_01     | Thanmathi D E         | Main            | Sankarankovil |
+| Cust_04     | Veluchamy             | North           | Thuckalay     |
++-------------+-----------------------+-----------------+---------------+
++-------------+-----------------------+-----------------+---------------+
+| customer_id | customer_name         | customer_street | customer_city |
++-------------+-----------------------+-----------------+---------------+
+| Cust_04     | Veluchamy             | North           | Thuckalay     |
+| Cust_01     | Thanmathi D E         | Main            | Sankarankovil |
+| Cust_03     | Thangasamy S          | East            | Madurai       |
+| Cust_10     | Suresh K              | East            | Salem         |
+| Cust_09     | Surenthran David P    | West            | Palayamkottai |
+| Cust_11     | Samiayya V            | West            | Chidambaram   |
+| Cust_12     | Sakunthaladevi S      | South           | Erode         |
+| Cust_13     | Muthuramalingam V     | Main            | Tiruppur      |
+| Cust_06     | Lakshmi V             | West            | Tenkasi       |
+| Cust_07     | Javid Ali L           | South           | Coimbatore    |
+| Cust_05     | Esther Venuga D       | Main            | Chennai       |
+| Cust_08     | Dickson Paul Samraj K | North           | Vallioor      |
+| Cust_02     | Bharkavi D E          | South           | Tirunelveli   |
++-------------+-----------------------+-----------------+---------------+

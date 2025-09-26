@@ -1,0 +1,85 @@
+select * from loan;
+
+select count(loan_no) from loan;
+select count(loan_no) as No_of_Loan from loan;
+
+
+select min(amount) from loan;
+select min(amount) as Minimum_Amount from loan;
+
+
+select max(amount) from loan;
+select max(amount) as Maximum_Amount from loan;
+
+select sum(amount) from loan;
+select sum(amount) as Total_Amount from loan;
+
+
+select avg(amount) from loan;
+select avg(amount) as Average_Amount from loan;
+
+Output:
+
++---------+-------------+--------+
+| loan_no | branch_name | amount |
++---------+-------------+--------+
+| Loan_01 | Guindy      |    900 |
+| Loan_02 | Adayar      |   1500 |
+| Loan_03 | Tambaram    |   1500 |
+| Loan_04 | Tambaram    |   1300 |
+| Loan_05 | Adayar      |   1000 |
+| Loan_06 | Saidapet    |   2000 |
+| Loan_07 | Chrompet    |    500 |
+| Loan_08 | Adayar      |   NULL |
+| Loan_09 | Guindy      |   NULL |
++---------+-------------+--------+
++----------------+
+| count(loan_no) |
++----------------+
+|              9 |
++----------------+
++------------+
+| No_of_Loan |
++------------+
+|          9 |
++------------+
++-------------+
+| min(amount) |
++-------------+
+|         500 |
++-------------+
++----------------+
+| Minimum_Amount |
++----------------+
+|            500 |
++----------------+
++-------------+
+| max(amount) |
++-------------+
+|        2000 |
++-------------+
++----------------+
+| Maximum_Amount |
++----------------+
+|           2000 |
++----------------+
++-------------+
+| sum(amount) |
++-------------+
+|        8700 |
++-------------+
++--------------+
+| Total_Amount |
++--------------+
+|         8700 |
++--------------+
++-------------+
+| avg(amount) |
++-------------+
+|   1242.8571 |
++-------------+
++----------------+
+| Average_Amount |
++----------------+
+|      1242.8571 |
++----------------+

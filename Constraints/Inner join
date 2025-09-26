@@ -1,0 +1,17 @@
+select * from branch,loan where branch.branch_name=loan.branch_name;
+
+Output:
+
++-------------+-------------+--------+---------+-------------+--------+
+| branch_name | branch_city | asset  | loan_no | branch_name | amount |
++-------------+-------------+--------+---------+-------------+--------+
+| Adayar      | Chennai-20  | 100000 | Loan_02 | Adayar      |   1500 |
+| Adayar      | Chennai-20  | 100000 | Loan_05 | Adayar      |   1000 |
+| Adayar      | Chennai-20  | 100000 | Loan_08 | Adayar      |    805 |
+| Chrompet    | Chennai-43  | 450000 | Loan_07 | Chrompet    |    500 |
+| Guindy      | Chennai-32  | 150000 | Loan_01 | Guindy      |    900 |
+| Guindy      | Chennai-32  | 150000 | Loan_09 | Guindy      |    875 |
+| Saidapet    | Chennai-15  | 150000 | Loan_06 | Saidapet    |   2000 |
+| Tambaram    | Chennai-45  |  50000 | Loan_03 | Tambaram    |   1500 |
+| Tambaram    | Chennai-45  |  50000 | Loan_04 | Tambaram    |   1300 |
++-------------+-------------+--------+---------+-------------+--------+

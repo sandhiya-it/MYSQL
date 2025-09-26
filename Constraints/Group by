@@ -1,0 +1,127 @@
+group by is used to group
+
+In MySQL, the GROUP BY clause is used to arrange identical data into groups.
+It is most commonly used with aggregate functions
+
+
+select count(customer_street) from customer;
+select count(customer_street) from customer group by customer_street;
+select customer_street,count(customer_street) from customer group by customer_street;
+
+select * from loan;
+
+select min(amount) from loan group by branch_name;
+select branch_name,min(amount) from loan group by branch_name;
+
+select max(amount) from loan group by branch_name;
+select branch_name,max(amount) from loan group by branch_name;
+
+select sum(amount) from loan group by branch_name;
+select branch_name,sum(amount) from loan group by branch_name;
+select branch_name,sum(amount) from loan group by branch_name having sum(amount)>2000;
+select branch_name,sum(amount) as total from loan group by branch_name having total>2000;
+
+Output:
+
++------------------------+
+| count(customer_street) |
++------------------------+
+|                     13 |
++------------------------+
++------------------------+
+| count(customer_street) |
++------------------------+
+|                      3 |
+|                      3 |
+|                      2 |
+|                      2 |
+|                      3 |
++------------------------+
++-----------------+------------------------+
+| customer_street | count(customer_street) |
++-----------------+------------------------+
+| Main            |                      3 |
+| South           |                      3 |
+| East            |                      2 |
+| North           |                      2 |
+| West            |                      3 |
++-----------------+------------------------+
++---------+-------------+--------+
+| loan_no | branch_name | amount |
++---------+-------------+--------+
+| Loan_01 | Guindy      |    900 |
+| Loan_02 | Adayar      |   1500 |
+| Loan_03 | Tambaram    |   1500 |
+| Loan_04 | Tambaram    |   1300 |
+| Loan_05 | Adayar      |   1000 |
+| Loan_06 | Saidapet    |   2000 |
+| Loan_07 | Chrompet    |    500 |
+| Loan_08 | Adayar      |   NULL |
+| Loan_09 | Guindy      |   NULL |
++---------+-------------+--------+
++-------------+
+| min(amount) |
++-------------+
+|        1000 |
+|         500 |
+|         900 |
+|        2000 |
+|        1300 |
++-------------+
++-------------+-------------+
+| branch_name | min(amount) |
++-------------+-------------+
+| Adayar      |        1000 |
+| Chrompet    |         500 |
+| Guindy      |         900 |
+| Saidapet    |        2000 |
+| Tambaram    |        1300 |
++-------------+-------------+
++-------------+
+| max(amount) |
++-------------+
+|        1500 |
+|         500 |
+|         900 |
+|        2000 |
+|        1500 |
++-------------+
++-------------+-------------+
+| branch_name | max(amount) |
++-------------+-------------+
+| Adayar      |        1500 |
+| Chrompet    |         500 |
+| Guindy      |         900 |
+| Saidapet    |        2000 |
+| Tambaram    |        1500 |
++-------------+-------------+
++-------------+
+| sum(amount) |
++-------------+
+|        2500 |
+|         500 |
+|         900 |
+|        2000 |
+|        2800 |
++-------------+
++-------------+-------------+
+| branch_name | sum(amount) |
++-------------+-------------+
+| Adayar      |        2500 |
+| Chrompet    |         500 |
+| Guindy      |         900 |
+| Saidapet    |        2000 |
+| Tambaram    |        2800 |
++-------------+-------------+
++-------------+-------------+
+| branch_name | sum(amount) |
++-------------+-------------+
+| Adayar      |        2500 |
+| Tambaram    |        2800 |
++-------------+-------------+
++-------------+-------+
+| branch_name | total |
++-------------+-------+
+| Adayar      |  2500 |
+| Tambaram    |  2800 |
++-------------+-------+

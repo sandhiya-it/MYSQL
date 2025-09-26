@@ -1,0 +1,34 @@
+The Logical operators are and, or, not
+
+select loan_no,branch_name from loan where branch_name='Tambaram' and amount>1400;
+
+select loan_no,branch_name from loan where branch_name='Tambaram' or branch_name='Adayar';
+
+select loan_no,branch_name from loan where not branch_name='Tambaram';
+
+output:
++---------+-------------+
+| loan_no | branch_name |
++---------+-------------+
+| Loan_03 | Tambaram    |
++---------+-------------+
++---------+-------------+
+| loan_no | branch_name |
++---------+-------------+
+| Loan_02 | Adayar      |
+| Loan_05 | Adayar      |
+| Loan_08 | Adayar      |
+| Loan_03 | Tambaram    |
+| Loan_04 | Tambaram    |
++---------+-------------+
++---------+-------------+
+| loan_no | branch_name |
++---------+-------------+
+| Loan_02 | Adayar      |
+| Loan_05 | Adayar      |
+| Loan_08 | Adayar      |
+| Loan_07 | Chrompet    |
+| Loan_01 | Guindy      |
+| Loan_09 | Guindy      |
+| Loan_06 | Saidapet    |
++---------+-------------+

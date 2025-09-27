@@ -1,0 +1,51 @@
+1. Find all the customer name who hava account in the bank
+
+select customer.customer_name from depositor,customer where depositor.customer_id=customer.customer_id;
+
+Output:
+
++-----------------------+
+| customer_name         |
++-----------------------+
+| Bharkavi D E          |
+| Thangasamy S          |
+| Veluchamy             |
+| Esther Venuga D       |
+| Lakshmi V             |
+| Javid Ali L           |
+| Dickson Paul Samraj K |
+| Dickson Paul Samraj K |
+| Surenthran David P    |
++-----------------------+
+
+2.Find the balance of all accounts along with customer name
+
+select customer.customer_name,account.account_no,account.balance from customer,depositor,account where customer.customer_id=depositor.customer_id and account.account_no=depositor.account_no;
+
+Output:
+
++-----------------------+------------+---------+
+| customer_name         | account_no | balance |
++-----------------------+------------+---------+
+| Veluchamy             | SB_101     |    1500 |
+| Dickson Paul Samraj K | SB_102     |    2300 |
+| Thangasamy S          | SB_103     |    1800 |
+| Esther Venuga D       | SB_104     |     500 |
+| Javid Ali L           | SB_105     |     500 |
+| Dickson Paul Samraj K | SB_106     |     500 |
+| Bharkavi D E          | SB_107     |     900 |
+| Lakshmi V             | SB_108     |    1300 |
+| Surenthran David P    | SB_108     |    1300 |
++-----------------------+------------+---------+
+
+3.List the name of customer who have account in tambaram branch
+
+select customer.customer_id,customer.customer_name from customer,depositor,account where customer.customer_id=depositor.customer_id and account.account_no=depositor.account_no and account.branch_name='Tambaram';
+
+Output:
+
++-------------+---------------+
+| customer_id | customer_name |
++-------------+---------------+
+| Cust_04     | Veluchamy     |
++-------------+---------------+

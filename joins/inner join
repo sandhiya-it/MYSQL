@@ -1,0 +1,213 @@
+create table branch(branch_name varchar(20) primary key,branch_city varchar(20),asset int);
+
+
+create table customer(customer_id varchar(20) primary key,customer_name varchar(50),customer_street varchar(20),customer_city varchar(20));
+
+
+create table account(account_no varchar(20) primary key,branch_name varchar(20),balance int,foreign key(branch_name) references branch(branch_name));
+
+
+create table loan(loan_no varchar(20) primary key,branch_name varchar(20),amount int,foreign key(branch_name) references branch(branch_name));
+
+
+create table borrower(loan_no varchar(20),customer_id varchar(20),foreign key(customer_id) references customer(customer_id),foreign key(loan_no) references loan(loan_no));
+
+
+create table depositor(account_no varchar(20),customer_id varchar(20),foreign key(account_no) references account(account_no),foreign key(customer_id) references customer(customer_id));
+
+
+insert into branch values('Tambaram','Chennai-45',50000);
+insert into branch values('Adayar','Chennai-20',100000);
+insert into branch values('Tnagar','Chennai-17',250000);
+insert into branch values('Saidapet','Chennai-15',150000);
+insert into branch values('Chrompet','Chennai-43',450000);
+insert into branch values('Guindy','Chennai-32',150000);
+
+
+
+insert into account values('SB_101','Tambaram',1500);
+insert into account values('SB_102','Adayar',2300);
+insert into account values('SB_103','TNagar',1800);
+insert into account values('SB_104','Saidapet',500);
+insert into account values('SB_105','Chrompet',500);
+insert into account values('SB_106','Guindy',500);
+insert into account values('SB_107','Guindy',900);
+insert into account values('SB_108','Chrompet',1300);
+
+
+
+insert into loan values('Loan_01','Guindy',900);
+insert into loan values('Loan_02','Adayar',1500);
+insert into loan values('Loan_03','Tambaram',1500);
+insert into loan values('Loan_04','Tambaram',1300);
+insert into loan values('Loan_05','Adayar',1000);
+insert into loan values('Loan_06','Saidapet',2000);
+insert into loan values('Loan_07','Chrompet',500);
+insert into loan values('Loan_08','Adayar',805);
+insert into loan values('Loan_09','Guindy',875);
+
+
+insert into customer values('Cust_01','Thanmathi D E','Main','Sankarankovil');
+insert into customer values('Cust_02','Bharkavi D E','South','Tirunelveli');
+insert into customer values('Cust_03','Thangasamy S','East','Madurai');
+insert into customer values('Cust_04','Veluchamy','North','Thuckalay');
+insert into customer values('Cust_05','Esther Venuga D','Main','Chennai');
+insert into customer values('Cust_06','Lakshmi V','West','Tenkasi');
+insert into customer values('Cust_07','Javid Ali L','South','Coimbatore');
+insert into customer values('Cust_08','Dickson Paul Samraj K','North','Vallioor');
+insert into customer values('Cust_09','Surenthran David P','West','Palayamkottai');
+insert into customer values('Cust_10','Suresh K','East','Salem');
+insert into customer values('Cust_11','Samiayya V','West','Chidambaram');
+insert into customer values('Cust_12','Sakunthaladevi S','South','Erode');
+insert into customer values('Cust_13','Muthuramalingam V','Main','Tiruppur');
+
+
+insert into borrower values('Loan_01','Cust_01');
+insert into borrower values('Loan_06','Cust_01');
+insert into borrower values('Loan_07','Cust_03');
+insert into borrower values('Loan_05','Cust_05');
+insert into borrower values('Loan_04','Cust_03');
+insert into borrower values('Loan_02','Cust_05');
+insert into borrower values('Loan_03','Cust_10');
+insert into borrower values('Loan_08','Cust_11');
+insert into borrower values('Loan_09','Cust_12');
+insert into borrower values('Loan_08','Cust_10');
+
+
+
+insert into depositor values('SB_101','Cust_04');
+insert into depositor values('SB_102','Cust_08');
+insert into depositor values('SB_103','Cust_03');
+insert into depositor values('SB_104','Cust_05');
+insert into depositor values('SB_105','Cust_07');
+insert into depositor values('SB_106','Cust_08');
+insert into depositor values('SB_107','Cust_02');
+insert into depositor values('SB_108','Cust_06');
+insert into depositor values('SB_108','Cust_09');
+
+
+select * from branch,account where branch.branch_name=account.branch_name;
+
+select * from branch,loan where branch.branch_name=loan.branch_name;
+
+select * from loan,borrower where loan.loan_no=borrower.loan_no;
+
+select * from customer,borrower where customer.customer_id=borrower.customer_id;
+
+select * from account,depositor where account.account_no=depositor.account_no;
+
+select * from customer,depositor where customer.customer_id=depositor.customer_id;
+
+select * from loan,borrower,customer where loan.loan_no=borrower.loan_no and customer.customer_id=borrower.customer_id;
+
+select * from account,depositor,customer where account.account_no=depositor.account_no and customer.customer_id=depositor.customer_id;
+
+
+Output:
+
++-------------+-------------+--------+------------+-------------+---------+
+| branch_name | branch_city | asset  | account_no | branch_name | balance |
++-------------+-------------+--------+------------+-------------+---------+
+| Adayar      | Chennai-20  | 100000 | SB_102     | Adayar      |    2300 |
+| Chrompet    | Chennai-43  | 450000 | SB_105     | Chrompet    |     500 |
+| Chrompet    | Chennai-43  | 450000 | SB_108     | Chrompet    |    1300 |
+| Guindy      | Chennai-32  | 150000 | SB_106     | Guindy      |     500 |
+| Guindy      | Chennai-32  | 150000 | SB_107     | Guindy      |     900 |
+| Saidapet    | Chennai-15  | 150000 | SB_104     | Saidapet    |     500 |
+| Tambaram    | Chennai-45  |  50000 | SB_101     | Tambaram    |    1500 |
+| Tnagar      | Chennai-17  | 250000 | SB_103     | TNagar      |    1800 |
++-------------+-------------+--------+------------+-------------+---------+
++-------------+-------------+--------+---------+-------------+--------+
+| branch_name | branch_city | asset  | loan_no | branch_name | amount |
++-------------+-------------+--------+---------+-------------+--------+
+| Adayar      | Chennai-20  | 100000 | Loan_02 | Adayar      |   1500 |
+| Adayar      | Chennai-20  | 100000 | Loan_05 | Adayar      |   1000 |
+| Adayar      | Chennai-20  | 100000 | Loan_08 | Adayar      |    805 |
+| Chrompet    | Chennai-43  | 450000 | Loan_07 | Chrompet    |    500 |
+| Guindy      | Chennai-32  | 150000 | Loan_01 | Guindy      |    900 |
+| Guindy      | Chennai-32  | 150000 | Loan_09 | Guindy      |    875 |
+| Saidapet    | Chennai-15  | 150000 | Loan_06 | Saidapet    |   2000 |
+| Tambaram    | Chennai-45  |  50000 | Loan_03 | Tambaram    |   1500 |
+| Tambaram    | Chennai-45  |  50000 | Loan_04 | Tambaram    |   1300 |
++-------------+-------------+--------+---------+-------------+--------+
++---------+-------------+--------+---------+-------------+
+| loan_no | branch_name | amount | loan_no | customer_id |
++---------+-------------+--------+---------+-------------+
+| Loan_01 | Guindy      |    900 | Loan_01 | Cust_01     |
+| Loan_02 | Adayar      |   1500 | Loan_02 | Cust_05     |
+| Loan_03 | Tambaram    |   1500 | Loan_03 | Cust_10     |
+| Loan_04 | Tambaram    |   1300 | Loan_04 | Cust_03     |
+| Loan_05 | Adayar      |   1000 | Loan_05 | Cust_05     |
+| Loan_06 | Saidapet    |   2000 | Loan_06 | Cust_01     |
+| Loan_07 | Chrompet    |    500 | Loan_07 | Cust_03     |
+| Loan_08 | Adayar      |    805 | Loan_08 | Cust_11     |
+| Loan_08 | Adayar      |    805 | Loan_08 | Cust_10     |
+| Loan_09 | Guindy      |    875 | Loan_09 | Cust_12     |
++---------+-------------+--------+---------+-------------+
++-------------+------------------+-----------------+---------------+---------+-------------+
+| customer_id | customer_name    | customer_street | customer_city | loan_no | customer_id |
++-------------+------------------+-----------------+---------------+---------+-------------+
+| Cust_01     | Thanmathi D E    | Main            | Sankarankovil | Loan_01 | Cust_01     |
+| Cust_01     | Thanmathi D E    | Main            | Sankarankovil | Loan_06 | Cust_01     |
+| Cust_03     | Thangasamy S     | East            | Madurai       | Loan_07 | Cust_03     |
+| Cust_05     | Esther Venuga D  | Main            | Chennai       | Loan_05 | Cust_05     |
+| Cust_03     | Thangasamy S     | East            | Madurai       | Loan_04 | Cust_03     |
+| Cust_05     | Esther Venuga D  | Main            | Chennai       | Loan_02 | Cust_05     |
+| Cust_10     | Suresh K         | East            | Salem         | Loan_03 | Cust_10     |
+| Cust_11     | Samiayya V       | West            | Chidambaram   | Loan_08 | Cust_11     |
+| Cust_12     | Sakunthaladevi S | South           | Erode         | Loan_09 | Cust_12     |
+| Cust_10     | Suresh K         | East            | Salem         | Loan_08 | Cust_10     |
++-------------+------------------+-----------------+---------------+---------+-------------+
++------------+-------------+---------+------------+-------------+
+| account_no | branch_name | balance | account_no | customer_id |
++------------+-------------+---------+------------+-------------+
+| SB_101     | Tambaram    |    1500 | SB_101     | Cust_04     |
+| SB_102     | Adayar      |    2300 | SB_102     | Cust_08     |
+| SB_103     | TNagar      |    1800 | SB_103     | Cust_03     |
+| SB_104     | Saidapet    |     500 | SB_104     | Cust_05     |
+| SB_105     | Chrompet    |     500 | SB_105     | Cust_07     |
+| SB_106     | Guindy      |     500 | SB_106     | Cust_08     |
+| SB_107     | Guindy      |     900 | SB_107     | Cust_02     |
+| SB_108     | Chrompet    |    1300 | SB_108     | Cust_06     |
+| SB_108     | Chrompet    |    1300 | SB_108     | Cust_09     |
++------------+-------------+---------+------------+-------------+
++-------------+-----------------------+-----------------+---------------+------------+-------------+
+| customer_id | customer_name         | customer_street | customer_city | account_no | customer_id |
++-------------+-----------------------+-----------------+---------------+------------+-------------+
+| Cust_04     | Veluchamy             | North           | Thuckalay     | SB_101     | Cust_04     |
+| Cust_08     | Dickson Paul Samraj K | North           | Vallioor      | SB_102     | Cust_08     |
+| Cust_03     | Thangasamy S          | East            | Madurai       | SB_103     | Cust_03     |
+| Cust_05     | Esther Venuga D       | Main            | Chennai       | SB_104     | Cust_05     |
+| Cust_07     | Javid Ali L           | South           | Coimbatore    | SB_105     | Cust_07     |
+| Cust_08     | Dickson Paul Samraj K | North           | Vallioor      | SB_106     | Cust_08     |
+| Cust_02     | Bharkavi D E          | South           | Tirunelveli   | SB_107     | Cust_02     |
+| Cust_06     | Lakshmi V             | West            | Tenkasi       | SB_108     | Cust_06     |
+| Cust_09     | Surenthran David P    | West            | Palayamkottai | SB_108     | Cust_09     |
++-------------+-----------------------+-----------------+---------------+------------+-------------+
++---------+-------------+--------+---------+-------------+-------------+------------------+-----------------+---------------+
+| loan_no | branch_name | amount | loan_no | customer_id | customer_id | customer_name    | customer_street | customer_city |
++---------+-------------+--------+---------+-------------+-------------+------------------+-----------------+---------------+
+| Loan_01 | Guindy      |    900 | Loan_01 | Cust_01     | Cust_01     | Thanmathi D E    | Main            | Sankarankovil |
+| Loan_02 | Adayar      |   1500 | Loan_02 | Cust_05     | Cust_05     | Esther Venuga D  | Main            | Chennai       |
+| Loan_03 | Tambaram    |   1500 | Loan_03 | Cust_10     | Cust_10     | Suresh K         | East            | Salem         |
+| Loan_04 | Tambaram    |   1300 | Loan_04 | Cust_03     | Cust_03     | Thangasamy S     | East            | Madurai       |
+| Loan_05 | Adayar      |   1000 | Loan_05 | Cust_05     | Cust_05     | Esther Venuga D  | Main            | Chennai       |
+| Loan_06 | Saidapet    |   2000 | Loan_06 | Cust_01     | Cust_01     | Thanmathi D E    | Main            | Sankarankovil |
+| Loan_07 | Chrompet    |    500 | Loan_07 | Cust_03     | Cust_03     | Thangasamy S     | East            | Madurai       |
+| Loan_08 | Adayar      |    805 | Loan_08 | Cust_11     | Cust_11     | Samiayya V       | West            | Chidambaram   |
+| Loan_08 | Adayar      |    805 | Loan_08 | Cust_10     | Cust_10     | Suresh K         | East            | Salem         |
+| Loan_09 | Guindy      |    875 | Loan_09 | Cust_12     | Cust_12     | Sakunthaladevi S | South           | Erode         |
++---------+-------------+--------+---------+-------------+-------------+------------------+-----------------+---------------+
++------------+-------------+---------+------------+-------------+-------------+-----------------------+-----------------+---------------+
+| account_no | branch_name | balance | account_no | customer_id | customer_id | customer_name         | customer_street | customer_city |
++------------+-------------+---------+------------+-------------+-------------+-----------------------+-----------------+---------------+
+| SB_101     | Tambaram    |    1500 | SB_101     | Cust_04     | Cust_04     | Veluchamy             | North           | Thuckalay     |
+| SB_102     | Adayar      |    2300 | SB_102     | Cust_08     | Cust_08     | Dickson Paul Samraj K | North           | Vallioor      |
+| SB_103     | TNagar      |    1800 | SB_103     | Cust_03     | Cust_03     | Thangasamy S          | East            | Madurai       |
+| SB_104     | Saidapet    |     500 | SB_104     | Cust_05     | Cust_05     | Esther Venuga D       | Main            | Chennai       |
+| SB_105     | Chrompet    |     500 | SB_105     | Cust_07     | Cust_07     | Javid Ali L           | South           | Coimbatore    |
+| SB_106     | Guindy      |     500 | SB_106     | Cust_08     | Cust_08     | Dickson Paul Samraj K | North           | Vallioor      |
+| SB_107     | Guindy      |     900 | SB_107     | Cust_02     | Cust_02     | Bharkavi D E          | South           | Tirunelveli   |
+| SB_108     | Chrompet    |    1300 | SB_108     | Cust_06     | Cust_06     | Lakshmi V             | West            | Tenkasi       |
+| SB_108     | Chrompet    |    1300 | SB_108     | Cust_09     | Cust_09     | Surenthran David P    | West            | Palayamkottai |
++------------+-------------+---------+------------+-------------+-------------+-----------------------+-----------------+---------------+
